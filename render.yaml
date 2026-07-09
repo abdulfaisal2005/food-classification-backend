@@ -1,0 +1,14 @@
+# render.yaml — Render deployment configuration for the FastAPI backend
+# Documentation: https://render.com/docs/yaml-defined-services
+
+services:
+  - type: web
+    name: indian-food-classifier-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+    # The trained model must be part of the repo under backend/model/
+    # Render free tier has 512 MB RAM – sufficient for this ~46 MB model.
