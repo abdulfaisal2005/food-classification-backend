@@ -9,6 +9,6 @@ services:
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.12.0
+        value: 3.11.11
     # The trained model must be part of the repo under backend/model/
     # Render free tier has 512 MB RAM – sufficient for this ~46 MB model.
